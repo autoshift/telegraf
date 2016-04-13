@@ -11,8 +11,10 @@
 
 # Global tags can be specified here in key="value" format.
 [tags]
-  dc = "us-west-1" # will tag all metrics with dc=us-west-1
-  rack = "1a"
+  #dc = "us-west-1" # will tag all metrics with dc=us-west-1
+
+[global_tags]
+  docker-host-ip = x.x.x.x #DOCKERHOSTIP
 
 # Configuration for telegraf agent
 [agent]

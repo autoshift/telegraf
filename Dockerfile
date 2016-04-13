@@ -2,6 +2,11 @@ FROM alpine:latest
 
 COPY telegraf.toml /telegraf.conf
 
+ENV DOCKER_HOST_IP /sbin/ip route|awk '/default/ { print $3 }'
+
+RUN \
+  sed -i "s| docker-host-ip = .* #DOCKERHOSTIP|  docker-host-ip = DOCKER_HOST_IP #DOCKERHOSTIP|g" /telegraf.conf
+
 # bash package is mainly for test purpose, remove it in production
 RUN apk update \
     && export ALPINE_GLIBC_URL="https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/" \
