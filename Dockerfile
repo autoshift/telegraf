@@ -2,10 +2,7 @@ FROM alpine:latest
 
 COPY telegraf.toml /telegraf.conf
 
-ENV DOCKER_HOST_IP /sbin/ip route|awk '/default/ { print $3 }'
-
-RUN \
-  sed -i "s| docker-host-ip = .* #DOCKERHOSTIP|  docker-host-ip = DOCKER_HOST_IP #DOCKERHOSTIP|g" /telegraf.conf
+ADD run.sh /run.sh
 
 # bash package is mainly for test purpose, remove it in production
 RUN apk update \
@@ -28,4 +25,4 @@ RUN wget -c -P /tmp http://get.influxdb.org/telegraf/telegraf-0.12.0-1_linux_amd
 # this will be overwritten in docker-compose to pass in mounted host stats
 ENV HOST_PROC='/proc' HOST_SYS='/sys'
 
-CMD ["/usr/local/bin/telegraf", "-config", "/telegraf.conf"]
+CMD ["/run.sh"]
