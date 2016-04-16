@@ -117,19 +117,19 @@
   drop = ["time_*"]
 
 # Read metrics about disk usage by mount point
-#[[inputs.disk]]
+[[inputs.disk]]
   ## By default, telegraf gather stats for all mountpoints.
   ## Setting mountpoints will restrict the stats to the specified mountpoints.
-  # mount_points = ["/"]
+  mount_points = ["/"]
 
 # Read metrics about disk IO by device
-#[[inputs.diskio]]
+[[inputs.diskio]]
   # By default, telegraf will gather stats for all devices including
   # disk partitions.
   # Setting devices will restrict the stats to the specified devices.
-  # devices = ["sda", "sdb"]
+  devices = ["sda", "sdb"]
   # Uncomment the following line if you do not need disk serial numbers.
- #  skip_serial_number = true
+  skip_serial_number = true
 
 # Read metrics about docker containers
 [[inputs.docker]]
@@ -141,7 +141,7 @@
   container_names = []
 
 # Read metrics about memory usage
-#[[inputs.mem]]
+[[inputs.mem]]
   # no configuration
 
 # Read metrics from one or many mysql servers
