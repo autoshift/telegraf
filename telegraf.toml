@@ -106,44 +106,6 @@
 #                                  INPUTS                                     #
 ###############################################################################
 
-
-# Read metrics about cpu usage
-[[inputs.cpu]]
-  # Whether to report per-cpu stats or not
-  percpu = true
-  # Whether to report total system cpu stats or not
-  totalcpu = true
-  # Comment this line if you want the raw CPU time metrics
-  drop = ["time_*"]
-
-# Read metrics about disk usage by mount point
-[[inputs.disk]]
-  ## By default, telegraf gather stats for all mountpoints.
-  ## Setting mountpoints will restrict the stats to the specified mountpoints.
-  mount_points = ["/"]
-
-# Read metrics about disk IO by device
-[[inputs.diskio]]
-  # By default, telegraf will gather stats for all devices including
-  # disk partitions.
-  # Setting devices will restrict the stats to the specified devices.
-  devices = ["sda", "sdb"]
-  # Uncomment the following line if you do not need disk serial numbers.
-  skip_serial_number = true
-
-# Read metrics about docker containers
-[[inputs.docker]]
-  # Docker Endpoint
-  #   To use TCP, set endpoint = "tcp://[ip]:[port]"
-  #   To use environment variables (ie, docker-machine), set endpoint = "ENV"
-  endpoint = "unix:///var/run/docker.sock"
-  # Only collect metrics for these containers, collect all if empty
-  container_names = []
-
-# Read metrics about memory usage
-[[inputs.mem]]
-  # no configuration
-
 # Read metrics from one or many mysql servers
 [[inputs.mysql]]
   ## specify servers via a url matching:
