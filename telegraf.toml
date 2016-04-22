@@ -145,7 +145,7 @@
   # no configuration
 
 # Read metrics from one or many mysql servers
-[[inputs.mysql]]
+#[[inputs.mysql]]
   ## specify servers via a url matching:
   ##  [username[:password]@][protocol[(address)]]/[?tls=[true|false|skip-verify]]
   ##  see https://github.com/go-sql-driver/mysql#dsn-data-source-name
@@ -154,7 +154,7 @@
   ##    root@tcp(127.0.0.1:3306)/?tls=false
   ##
   ## If no servers are specified, then localhost is used as the host.
-  servers = ["root:root@tcp(db:3306)/?tls=false"]
+  ## servers = ["root:root@tcp(db:3306)/?tls=false"]
 
 # Read metrics about network interface usage
 #[[inputs.net]]
@@ -184,9 +184,9 @@
   # no configuration
 
 # Read Nginx's basic status information (ngx_http_stub_status_module)
-[[inputs.nginx]]
+#[[inputs.nginx]]
   ## An array of Nginx stub_status URI to gather stats.
-  urls = ["http://nginx:80/nginx_status"]
+  ## urls = ["http://nginx:80/nginx_status"]
 
 # Read metrics about swap memory usage
 #[[inputs.swap]]
