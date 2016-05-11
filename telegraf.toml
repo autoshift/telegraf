@@ -71,7 +71,7 @@
 
   # Connection timeout (for the connection with InfluxDB), formatted as a string.
   # If not provided, will default to 0 (no timeout)
-  # timeout = "5s"
+  timeout = "30s"
   # username = "telegraf"
   # password = "metricsmetricsmetricsmetrics"
   # Set the user agent for HTTP POSTs (can be useful for log differentiation)
