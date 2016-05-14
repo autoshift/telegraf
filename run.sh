@@ -6,4 +6,4 @@ sed -i "s| docker-host-ip = .* #DOCKERHOSTIP|  docker-host-ip = \"$DOCKER_HOST_I
 
 sleep 10;
 
-/usr/local/bin/telegraf -config /telegraf.conf;
+telegraf -config /telegraf.conf;
